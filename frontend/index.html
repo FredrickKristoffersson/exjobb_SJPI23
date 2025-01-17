@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a page that shows some blog posts">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A page for the unholy</title>
+    <link rel="stylesheet" href="natureStyle.css">
+    <script defer src="natureScript.js"></script>
 </head>
 <body>
+<div id="app">
+    <header class="header">
+        <h1 class="title">Min Webbsida</h1>
+        <div class="icon" id="icon">⚙️</div>
+    </header>
+    <!-- Ljussektion till höger -->
+    <div class="right-light"></div>
 
+    <div class="presentBlogPosts">
+        <h1>Skapa Blogginlägg</h1>
+        <input id="title" type="text" placeholder="Titel" />
+        <textarea id="content" placeholder="Innehåll"></textarea>
+        <input id="author" type="text" placeholder="Författare" />
+        <button id="savePost">Spara Inlägg</button>
+    </div>
+
+    <div class="presentBlogPosts">
+        <h1>Alla Blogginlägg</h1>
+        <div id="allPosts"></div>
+    </div>
+
+
+    <!--    <h1>{{ title }}</h1>-->
+    <h1 class="test">hej hej</h1>
+    <!--    <p>{{ message }}</p>-->
+    <p class="test__div">Detta är en rad under min andra rad som är ovanför</p>
+</div>
 </body>
-</html>
