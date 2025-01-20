@@ -3,6 +3,7 @@ import mongoose, {Schema} from 'mongoose';
 import dotenv from 'dotenv';
 import Post from './models/post.ts';
 
+
 // Ladda miljövariabler
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(express.json()); // För att hantera JSON-data i requests
 const port = process.env.PORT || 3000;
 
 app.use(express.static('./frontend'));
+app.use('/game', express.static('./game'));
 
 // Skapa en typ för blogginlägget
 interface BlogPost {
@@ -29,8 +31,6 @@ interface BlogPost {
     // createdAt: { type: Date, default: Date.now },
 }
 
-// Skapa en modell
-// const Post = mongoose.model('BlogPost', BlogPost);
 
 // I din POST-route, definiera req.body som denna typ
 app.post('/posts', async (req, res) => {
@@ -62,12 +62,6 @@ app.get('/posts', async (_req, res) => {
         res.status(500).json({error: 'Failed to fetch posts'});
     }
 });
-
-// app.use(express.json());
-
-// app.get('/', (req, res) => {
-//     res.send('Welcome to the server!');
-// })
 
 app.listen(port, () => {
     console.log("Hej nu är servern igång och du kan testa hemsidan");
