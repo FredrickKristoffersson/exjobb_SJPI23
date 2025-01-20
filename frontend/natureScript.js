@@ -37,7 +37,7 @@ saveButton.addEventListener('click', async () => {
 
         if (response.ok) {
             alert('Inlägget har sparats!');
-            loadPosts(); // Uppdatera inläggen
+            loadPosts();
         } else {
             alert('Kunde inte spara inlägget');
         }
@@ -46,13 +46,12 @@ saveButton.addEventListener('click', async () => {
     }
 });
 
-// Funktion för att hämta och visa alla blogginlägg
 async function loadPosts() {
     try {
         const response = await fetch('http://localhost:3000/posts');
         const posts = await response.json();
 
-        allPostsDiv.innerHTML = ''; // Rensa tidigare innehåll
+        allPostsDiv.innerHTML = '';
         posts.forEach((post) => {
             const postDiv = document.createElement('div');
             postDiv.innerHTML = `
@@ -68,5 +67,4 @@ async function loadPosts() {
     }
 }
 
-// Ladda inlägg vid sidstart
 loadPosts();
