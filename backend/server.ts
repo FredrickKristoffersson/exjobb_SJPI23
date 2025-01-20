@@ -1,13 +1,10 @@
 import express from 'express';
-import mongoose, {Schema} from 'mongoose';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import Post from './models/post.ts';
 
-
-// Ladda miljövariabler
 dotenv.config();
 
-// Anslut till MongoDB med Mongoose
 mongoose.connect(process.env.MONGODB_URI as string)
     .then(() => {
         console.log("Ansluten till MongoDB!");
@@ -17,13 +14,12 @@ mongoose.connect(process.env.MONGODB_URI as string)
     });
 
 const app = express();
-app.use(express.json()); // För att hantera JSON-data i requests
+app.use(express.json());
 const port = process.env.PORT || 3000;
 
 app.use(express.static('./frontend'));
 app.use('/game', express.static('./game'));
 
-// Skapa en typ för blogginlägget
 interface BlogPost {
     title: string;
     content: string;
@@ -31,20 +27,16 @@ interface BlogPost {
     // createdAt: { type: Date, default: Date.now },
 }
 
-
-// I din POST-route, definiera req.body som denna typ
 app.post('/posts', async (req, res) => {
     const {title, content, author}: BlogPost = req.body;
 
     try {
-        // Skapa ett nytt blogginlägg
         const newPost = new Post({
             title,
             content,
             author
         });
 
-        // Spara post i MongoDB
         await newPost.save();
 
         res.status(201).json({message: 'Blogginlägg skapat!', post: newPost});
@@ -53,7 +45,6 @@ app.post('/posts', async (req, res) => {
     }
 });
 
-// GET: Hämta alla inlägg
 app.get('/posts', async (_req, res) => {
     try {
         const posts = await Post.find().sort({createdAt: -1});
