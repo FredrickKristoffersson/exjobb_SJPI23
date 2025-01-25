@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
 const app = express();
 app.use(express.json());
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(express.static('./frontend'));
 app.use('/game', express.static('./game'));
