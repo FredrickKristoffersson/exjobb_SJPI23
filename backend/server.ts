@@ -20,30 +20,24 @@ const port = 3000;
 app.use(express.static('./frontend'));
 app.use('/game', express.static('./game'));
 
-interface BlogPost {
-    title: string;
-    content: string;
-    author: string;
-    // createdAt: { type: Date, default: Date.now },
-}
-
 app.post('/posts', async (req, res) => {
-    const {title, content, author}: BlogPost = req.body;
+    const { title, content, author } = req.body;
 
     try {
         const newPost = new Post({
             title,
             content,
-            author
+            author,
         });
 
         await newPost.save();
 
-        res.status(201).json({message: 'Blogginlägg skapat!', post: newPost});
+        res.status(201).json({ message: 'Blogginlägg skapat', post: newPost });
     } catch (error) {
-        res.status(400).json({message: 'Något gick fel vid skapande av inlägg', error});
+        res.status(400).json({ message: 'Något gick fel', error });
     }
 });
+
 
 app.get('/posts', async (_req, res) => {
     try {
@@ -55,6 +49,5 @@ app.get('/posts', async (_req, res) => {
 });
 
 app.listen(port, () => {
-    console.log("Hej nu är servern igång och du kan testa hemsidan");
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Hej nu är servern igång och du kan testa hemsidan, port är ${port}`);
 });
