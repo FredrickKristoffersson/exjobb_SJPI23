@@ -11,7 +11,7 @@ Bloggsida är en webbapplikation där användare kan läsa och interagera med bl
 ## Komma igång
 
 Skapa dotenv-fil och infoga denna sträng:<br>
-mongodb+srv://"user":"password"@blogposts.imwob.mongodb.net/?retryWrites=true&w=majority&appName=Blogposts
+mongodb+srv://user:password@blogposts.imwob.mongodb.net/?retryWrites=true&w=majority&appName=Blogposts
 
 Ersätt user med ditt mongodb-användarnamn.<br>
 Ersätt password med mongodb-lösenord.
