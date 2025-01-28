@@ -4,9 +4,9 @@ Bloggsida är en webbapplikation där användare kan läsa och interagera med bl
 
 ## Innehåll
 
-[Klona repo](Klona repo)<br>
-[Komma igång](Komma igång) <br>
-[Starta utvecklingsläge]()
+- Klona repo<br>
+- Komma igång<br>
+- Starta utvecklingsläge
 
 ## Komma igång
 
