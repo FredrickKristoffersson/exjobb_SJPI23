@@ -8,6 +8,10 @@ Bloggsida är en webbapplikation där användare kan läsa och interagera med bl
 - Komma igång<br>
 - Starta utvecklingsläge
 
+## Klona repo
+
+Kopiera länk från repo. Starta upp projekt lokalt med repo-länk.
+
 ## Komma igång
 
 Skapa dotenv-fil och infoga denna sträng:<br>
